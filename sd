@@ -1,0 +1,68 @@
+mov esi, eax
+    call iprintLF ; mostrar resultado de la primer multiplicacion
+
+    pop eax ; valor de la pila asignado para base = 4 
+    pop eax
+
+    mov ebx, eax ; ebx = 4
+
+    pop eax
+     ; valor de la pila asignado para la altura = 6
+    mov ecx, eax
+
+    mul ebx
+    push eax
+    call iprintLF
+
+    mov eax, esi
+    call   iprintLF
+
+
+    ; sacar el valor de profundidad
+    mov ebx, esi
+
+    mov eax, ecx
+
+    mul ebx
+    push eax
+
+
+    call iprintLF
+
+
+    ;Sumar los resultados de la mutiplicaciones
+
+    call iprintLF
+    pop eax
+    call iprintLF
+
+    pop eax
+    call iprintLF
+
+    pop eax
+    call iprintLF
+
+
+    pop eax
+    call iprintLF
+
+    pop eax
+    call iprintLF
+
+    pop eax
+    call iprintLF
+   
+
+    
+
+
+
+
+
+    
+    
+
+
+	
+	
+  

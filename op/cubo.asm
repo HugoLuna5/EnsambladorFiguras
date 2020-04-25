@@ -1,6 +1,6 @@
 
 
-opcuboStatic:
+opCuboStatic:
     mov 	eax, mbase
 	call 	sprint
 	

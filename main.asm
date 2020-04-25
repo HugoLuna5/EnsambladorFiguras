@@ -11,7 +11,9 @@
   
 SECTION .data    
 
-msaludo		db	'Programa para calcular el área, perimetro y volumen de superficie (Cubo y prisma rectangular). ¿Qué figura desea utilizar?... 1)Cuadrado, 2)Rectángulo, 3)Cubo, 4)Prisma rectangular', 0h
+mInitMSG		db	'Programa para calcular el área, perimetro y volumen de superficie (Cubo y prisma rectangular).', 0h
+mSecondMSG      db  '¿Qué figura desea utilizar?', 0h
+mOptionsMSG     db  '1)Cuadrado, 2)Rectángulo, 3)Cubo, 4)Prisma rectangular',0h
 mbase	db      'Ingrese la base: ', 0h
 maltura	db      'Ingrese la altura: ', 0h  
 mprof	db	'Ingrese la profundidad: ', 0h
@@ -19,13 +21,17 @@ marea	db	'El área es: ', 0h
 mperimetro	db	'El perimetro es: ', 0h
 mvolumen	db	'El volumen es: ', 0h
 
-merror        db      'numero incorrecto', 0h 
-magain	      db      '¿Desea preguntar otra vez? (s/n)', 0h
+merror        db      'dato incorrecto', 0h 
+magain	      db      '¿Desea realizar otra operación? (s/n)', 0h
 
 SECTION .bss     
 valor:	resb    80
 base: 	resb	80
 altura:	resb	80
+profundidad:	resb	80
+
+
+
 Srespuesta:     resb    80                            
 dummy:		resb 1
  
@@ -35,7 +41,13 @@ global  _start
 _start:
 etinicio:
 
-    mov     eax, msaludo
+    mov     eax, mInitMSG
+    call    sprintLF
+
+    mov     eax, mOptionsMSG
+    call    sprintLF
+
+    mov     eax, mSecondMSG
     call    sprintLF
  
     mov     eax, Srespuesta      
@@ -66,7 +78,7 @@ opRectangulo:
 
 
 opCubo: 
-	call opCuadradoStatic
+	call opCuboStatic
 
 opPrisma: 
 	call opPrismaStatic
